@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+
+options = {}
+
+OptionParser.new do |opts|
+  opts.banner = 'Usage: csv_trimmer [options]'
+
+  opts.on('-p PATH', '--path PATH', 'Source file path') do |v|
+    options[:source_file] = v
+  end
+end.parse!
+
+puts ARGV
+puts options
