@@ -13,7 +13,7 @@ module CsvTrimmer
         return
       end
 
-      if @options[:cut] && @options[:cut] > 0
+      if cut_num > 0
         cut
       end
     end
@@ -21,7 +21,7 @@ module CsvTrimmer
     def cut
       rows = CSV.read(@source_file)
       i = 0
-      j = @options[:cut]
+      j = cut_num
       max_length = rows.length
       while i < max_length
         j = j > max_length ? max_length : j
@@ -31,13 +31,17 @@ module CsvTrimmer
           end
         end
 
-        i += @options[:cut]
-        j += @options[:cut]
+        i += cut_num
+        j += cut_num
       end
     end
 
     def file_name
       @file_name ||= File.basename(@source_file)
+    end
+
+    def cut_num
+      @cut_num ||= @options[:cut].to_i
     end
   end
 end

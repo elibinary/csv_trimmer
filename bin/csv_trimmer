@@ -2,6 +2,7 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
 require 'optparse'
+require 'csv_trimmer'
 
 options = {}
 
@@ -22,3 +23,4 @@ OptionParser.new do |opts|
 end.parse!
 
 # puts options
+CsvTrimmer.trimmer(options)
