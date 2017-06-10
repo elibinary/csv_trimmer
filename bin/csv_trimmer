@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
 require 'optparse'
 
@@ -10,7 +11,14 @@ OptionParser.new do |opts|
   opts.on('-p PATH', '--path PATH', 'Source file path') do |v|
     options[:source_file] = v
   end
+
+  opts.on('-c CUT', '--cut CUT', 'Number of lines per file') do |v|
+    options[:cut] = v
+  end
+
+  opts.on('-z ZIP', '--zip ZIP', 'Whether or not to pack') do |v|
+    options[:zip] = v
+  end
 end.parse!
 
-puts ARGV
-puts options
+# puts options
