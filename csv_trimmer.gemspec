@@ -7,12 +7,11 @@ Gem::Specification.new do |spec|
   spec.name          = "csv_trimmer"
   spec.version       = CsvTrimmer::VERSION
   spec.authors       = ["eli"]
-  spec.email         = ["zhangzhihan@boohee.com"]
+  spec.email         = ["binaryeli@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
-  spec.license       = "MIT"
+  spec.summary       = %q{A simple tool to manipulate csv.}
+  spec.description   = %q{A simple tool to manipulate csv.}
+  spec.homepage      = "https://github.com/elibinary/csv_trimmer.git"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
