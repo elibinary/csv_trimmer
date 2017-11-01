@@ -15,6 +15,12 @@ OptionParser.new do |opts|
 
   opts.on('-c CUT', '--cut CUT', 'Number of lines per file') do |v|
     options[:cut] = v
+    options[:act] = :cut
+  end
+
+  opts.on('-b BY', '--b BY', 'Cut file by column') do |v|
+    options[:cut_by] = v
+    options[:act] = :cut_by
   end
 
   opts.on('-z ZIP', '--zip ZIP', 'Whether or not to pack') do |v|

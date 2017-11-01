@@ -13,9 +13,7 @@ module CsvTrimmer
         return
       end
 
-      if cut_num > 0
-        cut
-      end
+      send(@options[:act])
     end
 
     def cut
@@ -33,6 +31,26 @@ module CsvTrimmer
 
         i += cut_num
         j += cut_num
+      end
+    end
+
+    def cut_by
+      unless File.file?(@source_file)
+        puts 'file not found'
+        return
+      end
+
+      unless @options[:cut_by]
+        puts 'cut by what'
+        return
+      end
+      # column = ''
+      by_cul = @options[:cut_by].to_i
+      # header = []
+      CSV.foreach(@source_file) do |row|
+        CSV.open("#{file_name}-value-#{row[by_cul]}.csv", 'ab') do |csv|
+          csv << row
+        end
       end
     end
 
